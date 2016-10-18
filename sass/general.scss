@@ -43,5 +43,16 @@ $darkgray: darkgray;
     width: 20%;
     padding: 0 15px;
     float:left;
+    .box {
+      padding: 3px 10px;
+      h4 {
+        font-size:15px;
+        font-weight: bold;
+      }
+    }
+    .box.pending {border: 2px $darkgray solid; color: $gray;}
+    .box.running {border: 2px $blue solid; color: $blue;}
+    .box.rejected {border: 2px $red solid; color: $red;}
+    .box.complete, .box.accepted {border: 2px $green solid; color: $green;}
   }
 }
