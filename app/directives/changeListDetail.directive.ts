@@ -14,7 +14,13 @@
 			}
     };
     function link($scope: any, $element: JQuery, $attr: ng.IAttributes){
-      
+      $scope.$watch(()=>$scope.changeListItem, getPercentages);
+      function getPercentages(){
+        $scope.percentages = {
+          unitTest: processService.getPercentageFromObject($scope.changeListItem.unitTest),
+          functionalTest: processService.getPercentageFromObject($scope.changeListItem.functionalTest)
+        };
+      }
     }
   }
 

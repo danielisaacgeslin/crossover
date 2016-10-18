@@ -59,6 +59,13 @@
             }
         };
         function link($scope, $element, $attr) {
+            $scope.$watch(function () { return $scope.changeListItem; }, getPercentages);
+            function getPercentages() {
+                $scope.percentages = {
+                    unitTest: processService.getPercentageFromObject($scope.changeListItem.unitTest),
+                    functionalTest: processService.getPercentageFromObject($scope.changeListItem.functionalTest)
+                };
+            }
         }
     }
 })();

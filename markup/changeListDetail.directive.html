@@ -2,6 +2,10 @@
   <section>
     <div class="box" ng-class="changeListItem.state">
       <h4>Metrics</h4>
+      <p>test {{changeListItem.metrics.test}}</p>
+      <p>maintanability {{changeListItem.metrics.maintanability}}</p>
+      <p>security {{changeListItem.metrics.security}}</p>
+      <p>workmanship {{changeListItem.metrics.workmanship}}</p>
     </div>
   </section>
   <section>
@@ -13,11 +17,13 @@
   <section>
     <div class="box" ng-class="changeListItem.state">
       <h4>Unit Test</h4>
+      <p>tests passed {{percentages.unitTest.percentages.pass | number:0}}%</p>
     </div>
   </section>
   <section>
     <div class="box" ng-class="changeListItem.state">
       <h4>Functional Test</h4>
+      <p>tests passed {{percentages.functionalTest.percentages.pass | number:0}}%</p>
     </div>
   </section>
   <section>

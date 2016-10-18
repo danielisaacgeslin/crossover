@@ -20,7 +20,7 @@
           metrics: processService.getPercentageFromObject($scope.changeListItem.metrics).average,
           unitTest: processService.getPercentageFromObject($scope.changeListItem.unitTest).average,
           functionalTest: processService.getPercentageFromObject($scope.changeListItem.functionalTest).average
-        }
+        };
       }
     }
   }
