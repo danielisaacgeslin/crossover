@@ -34,9 +34,10 @@
 require('./modules/app.module');
 require('./config');
 require('./services/async.service');
+require('./services/store.service');
 require('./controllers/main.controller');
 
-},{"./config":1,"./controllers/main.controller":2,"./modules/app.module":4,"./services/async.service":5}],4:[function(require,module,exports){
+},{"./config":1,"./controllers/main.controller":2,"./modules/app.module":4,"./services/async.service":5,"./services/store.service":6}],4:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app', ['ui.router', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
@@ -45,9 +46,9 @@ require('./controllers/main.controller');
 },{}],5:[function(require,module,exports){
 (function () {
     'use strict';
-    angular.module('app').factory('asyncFactory', asyncFactory);
-    asyncFactory.$inject = ['$http', '$q', 'constants'];
-    function asyncFactory($http, $q, constants) {
+    angular.module('app').factory('asyncService', asyncService);
+    asyncService.$inject = ['$http', 'constants'];
+    function asyncService($http, constants) {
         var API = constants.API;
         return {
             getChangeList: getChangeList
@@ -55,7 +56,28 @@ require('./controllers/main.controller');
         function getChangeList() {
             return $http.get(API.concat('getChangeList.json'));
         }
-        ;
+    }
+})();
+
+},{}],6:[function(require,module,exports){
+(function () {
+    'use strict';
+    angular.module('app').factory('storeService', storeService);
+    storeService.$inject = ['$http', '$q', 'constants'];
+    function storeService($q) {
+        var changeList = [];
+        return {
+            getChangeList: getChangeList
+        };
+        function getChangeList() {
+            var defer = $q.defer();
+            if (changeList.length) {
+                defer.resolve(changeList);
+            }
+            else {
+            }
+            return defer.promise;
+        }
     }
 })();
 

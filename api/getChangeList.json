@@ -1,0 +1,26 @@
+{
+  "changeList": [
+    {
+      "id": "Tenrox-R1_1235",
+      "type": "firewall",
+      "owner": null,
+      "timeStarted": null,
+      "state": "pending",
+      "metrics": {
+        "test": 64,
+        "mantainability": 53,
+        "security": 64,
+        "workmanship": 72
+      },
+      "build": "2016-10-18T14:36:07.122Z",
+      "unitTest": {
+        "pass": 142,
+        "fail": 10
+      },
+      "functionalTest": {
+        "pass": 4321,
+        "fail": 2145
+      }
+    }
+  ]
+}
