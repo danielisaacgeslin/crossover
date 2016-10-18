@@ -27,8 +27,21 @@ $darkgray: darkgray;
   }
 }
 
+.change-list-row.pending {color: $darkgray;}
+.change-list-row.running {color: $blue;}
+.change-list-row.rejected {color: $red;}
+.change-list-row.complete, .change-list-row.accepted {color: $green;}
 .change-list-row {
+  padding: 5px 0;
   .state {
     text-transform: capitalize;
+  }
+}
+
+.change-list-detail {
+  section {
+    width: 20%;
+    padding: 0 15px;
+    float:left;
   }
 }

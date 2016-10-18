@@ -16,11 +16,20 @@
         </thead>
         <tbody>
           <tr
-          ng-repeat="changeListRow in vm.changeList track by $index"
+          ng-repeat-start="changeListRow in vm.changeList track by $index"
+          ng-click="vm.toggleVisibleRow($index)"
           change-list-row
           change-list-item="changeListRow"
           class="change-list-row"
+          ng-class="changeListRow.state"
           ></tr>
+          <tr
+          ng-repeat-end
+          ng-if="vm.visibleRow === $index"
+          change-list-detail
+          change-list-item="changeListRow"
+          >
+          </tr>
         </tbody>
       </table>
     </div>

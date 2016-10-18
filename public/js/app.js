@@ -26,20 +26,44 @@
     function mainController($scope, $q, storeService) {
         var vm = this;
         vm.changeList = [];
-        init();
-        function init() {
-            getChangeList();
+        vm.visibleRow = null;
+        vm.toggleVisibleRow = toggleVisibleRow;
+        _init();
+        function _init() {
+            _getChangeList();
         }
-        function getChangeList() {
+        function _getChangeList() {
             return storeService.getChangeList().then(function (data) {
                 vm.changeList = data;
                 console.log(vm.changeList);
             });
         }
+        function toggleVisibleRow(index) {
+            vm.visibleRow = vm.visibleRow === index ? null : index;
+        }
     }
 })();
 
 },{}],3:[function(require,module,exports){
+(function () {
+    'use strict';
+    angular.module('app').directive('changeListDetail', changeListDetail);
+    changeListDetail.$inject = ['processService'];
+    function changeListDetail(processService) {
+        return {
+            restrict: 'A',
+            templateUrl: 'changeListDetail.directive.html',
+            link: link,
+            scope: {
+                changeListItem: '=',
+            }
+        };
+        function link($scope, $element, $attr) {
+        }
+    }
+})();
+
+},{}],4:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app').directive('changeListRow', changeListRow);
@@ -66,7 +90,7 @@
     }
 })();
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app').directive('smallChart', smallChart);
@@ -86,7 +110,7 @@
     }
 })();
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 require('./modules/app.module');
 require('./config');
@@ -94,16 +118,17 @@ require('./services/process.service');
 require('./services/async.service');
 require('./services/store.service');
 require('./directives/changeListRow.directive');
+require('./directives/changeListDetail.directive');
 require('./directives/smallChart.directive');
 require('./controllers/main.controller');
 
-},{"./config":1,"./controllers/main.controller":2,"./directives/changeListRow.directive":3,"./directives/smallChart.directive":4,"./modules/app.module":6,"./services/async.service":7,"./services/process.service":8,"./services/store.service":9}],6:[function(require,module,exports){
+},{"./config":1,"./controllers/main.controller":2,"./directives/changeListDetail.directive":3,"./directives/changeListRow.directive":4,"./directives/smallChart.directive":5,"./modules/app.module":7,"./services/async.service":8,"./services/process.service":9,"./services/store.service":10}],7:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app', ['ui.router', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 })();
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app').factory('asyncService', asyncService);
@@ -119,7 +144,7 @@ require('./controllers/main.controller');
     }
 })();
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app').factory('processService', processService);
@@ -160,7 +185,7 @@ require('./controllers/main.controller');
     }
 })();
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app').factory('storeService', storeService);
@@ -187,4 +212,4 @@ require('./controllers/main.controller');
     }
 })();
 
-},{}]},{},[5]);
+},{}]},{},[6]);

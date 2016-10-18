@@ -5,15 +5,20 @@
     function mainController($scope, $q, storeService) {
         var vm = this;
         vm.changeList = [];
-        init();
-        function init() {
-            getChangeList();
+        vm.visibleRow = null;
+        vm.toggleVisibleRow = toggleVisibleRow;
+        _init();
+        function _init() {
+            _getChangeList();
         }
-        function getChangeList() {
+        function _getChangeList() {
             return storeService.getChangeList().then(function (data) {
                 vm.changeList = data;
                 console.log(vm.changeList);
             });
+        }
+        function toggleVisibleRow(index) {
+            vm.visibleRow = vm.visibleRow === index ? null : index;
         }
     }
 })();
