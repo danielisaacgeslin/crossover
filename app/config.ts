@@ -1,6 +1,6 @@
 (() =>{
 	'use strict';
-	angular.module('app').config(config).constant(constants);
+	angular.module('app').config(config).constant('constants', constants());
 
 	function config($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider){
 		$urlRouterProvider.otherwise('/');
@@ -12,7 +12,7 @@
 		});
 	}
 
-	function constants(){
+	function constants(): any{
 		return {
 			API: '/api/'
 		};

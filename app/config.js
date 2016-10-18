@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('app').config(config).constant(constants);
+    angular.module('app').config(config).constant('constants', constants());
     function config($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('/', {

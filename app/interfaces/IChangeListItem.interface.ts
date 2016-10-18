@@ -1,7 +1,7 @@
 interface IChangeListItem {
   id: string,
   type: string,
-  owener: string,
+  owner: string,
   timeStarted: Date,
   state: string,
   metrics: IMetrics,
