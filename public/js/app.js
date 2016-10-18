@@ -25,35 +25,57 @@
     mainController.$inject = ['$scope', '$q', 'storeService'];
     function mainController($scope, $q, storeService) {
         var vm = this;
-        var changeList = [];
+        vm.changeList = [];
         init();
         function init() {
             getChangeList();
         }
         function getChangeList() {
             return storeService.getChangeList().then(function (data) {
-                changeList = data;
+                vm.changeList = data;
+                console.log(vm.changeList);
             });
         }
     }
 })();
 
 },{}],3:[function(require,module,exports){
+(function () {
+    'use strict';
+    angular.module('app').directive('changeListRow', changeListRow);
+    changeListRow.$inject = [];
+    function changeListRow() {
+        return {
+            restrict: 'A',
+            templateUrl: 'changeListRow.directive.html',
+            link: link,
+            scope: {
+                changeListItem: '=',
+            }
+        };
+    }
+    function link($scope, $element, $attr) {
+        console.log($scope.changeListItem);
+    }
+})();
+
+},{}],4:[function(require,module,exports){
 'use strict';
 require('./modules/app.module');
 require('./config');
 require('./services/process.service');
 require('./services/async.service');
 require('./services/store.service');
+require('./directives/changeListRow.directive');
 require('./controllers/main.controller');
 
-},{"./config":1,"./controllers/main.controller":2,"./modules/app.module":4,"./services/async.service":5,"./services/process.service":6,"./services/store.service":7}],4:[function(require,module,exports){
+},{"./config":1,"./controllers/main.controller":2,"./directives/changeListRow.directive":3,"./modules/app.module":5,"./services/async.service":6,"./services/process.service":7,"./services/store.service":8}],5:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app', ['ui.router', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 })();
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app').factory('asyncService', asyncService);
@@ -69,7 +91,7 @@ require('./controllers/main.controller');
     }
 })();
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app').factory('processService', processService);
@@ -94,7 +116,7 @@ require('./controllers/main.controller');
     }
 })();
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function () {
     'use strict';
     angular.module('app').factory('storeService', storeService);
@@ -121,4 +143,4 @@ require('./controllers/main.controller');
     }
 })();
 
-},{}]},{},[3]);
+},{}]},{},[4]);

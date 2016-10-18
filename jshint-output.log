@@ -1,55 +1,5 @@
 
-1 lint errors found in app\services\async.service.js
-  [13,9](W032) Unnecessary semicolon.
-1 lint errors found in app\services\async.service.js
-  [13,9](W032) Unnecessary semicolon.
-1 lint errors found in app\services\async.service.js
-  [13,9](W032) Unnecessary semicolon.
-1 lint errors found in app\services\async.service.js
-  [13,9](W032) Unnecessary semicolon.
-2 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-2 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-2 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-2 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-2 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-2 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-4 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-  [6,19](W117) 'constants' is not defined.
-  [11,20](W117) '$http' is not defined.
-4 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-  [6,19](W117) 'constants' is not defined.
-  [11,20](W117) '$http' is not defined.
-2 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-2 lint errors found in app\services\store.service.js
-  [3,51](W117) 'storeService' is not defined.
-  [4,5](W117) 'storeService' is not defined.
-1 lint errors found in app\services\store.service.js
-  [15,18](W035) Empty block.
-1 lint errors found in app\services\store.service.js
-  [15,18](W035) Empty block.
-1 lint errors found in app\services\store.service.js
-  [15,18](W035) Empty block.
-1 lint errors found in app\services\store.service.js
-  [15,18](W035) Empty block.
-1 lint errors found in app\services\store.service.js
-  [15,18](W035) Empty block.
-1 lint errors found in app\services\store.service.js
-  [15,18](W035) Empty block.
+1 lint errors found in app\controllers\main.controller.spec.js
+  [21,5](W033) Missing semicolon.
+1 lint errors found in app\controllers\main.controller.spec.js
+  [21,5](W033) Missing semicolon.

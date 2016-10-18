@@ -14,6 +14,13 @@
             <th>Functional Test</th>
           </tr>
         </thead>
+        <tbody>
+          <tr
+          ng-repeat="changeListRow in vm.changeList track by $index"
+          change-list-row
+          change-list-item="changeListRow"
+          ></tr>
+        </tbody>
       </table>
     </div>
   </div>

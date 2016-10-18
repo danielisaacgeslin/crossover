@@ -4,14 +4,15 @@
     mainController.$inject = ['$scope', '$q', 'storeService'];
     function mainController($scope, $q, storeService) {
         var vm = this;
-        var changeList = [];
+        vm.changeList = [];
         init();
         function init() {
             getChangeList();
         }
         function getChangeList() {
             return storeService.getChangeList().then(function (data) {
-                changeList = data;
+                vm.changeList = data;
+                console.log(vm.changeList);
             });
         }
     }
