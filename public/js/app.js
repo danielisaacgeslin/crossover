@@ -16,15 +16,12 @@
 },{}],2:[function(require,module,exports){
 (function () {
     'use strict';
-    var MainController = (function () {
-        function MainController($scope) {
-            this.$scope = $scope;
-            this.test = 'testing this controller';
-        }
-        MainController.$inject = ['$scope'];
-        return MainController;
-    }());
-    angular.module('app').controller('mainController', MainController);
+    angular.module('app').controller('mainController', mainController);
+    mainController.$inject = ['$scope'];
+    function mainController($scope) {
+        var vm = this;
+        vm.test = 'asd';
+    }
 })();
 
 },{}],3:[function(require,module,exports){

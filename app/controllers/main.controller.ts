@@ -1,12 +1,10 @@
 (()=>{
 	'use strict';
-	class MainController implements ng.IController{
-		static $inject: string[] = ['$scope'];
-		public test: string;
+	angular.module('app').controller('mainController', mainController);
 
-		constructor(private $scope: ng.IScope){
-			this.test = 'testing this controller';
-		}
+	mainController.$inject = ['$scope'];
+	function mainController($scope){
+		const vm = this;
+		vm.test = 'asd';
 	}
-	angular.module('app').controller('mainController', MainController);
 })();
