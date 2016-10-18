@@ -1,0 +1,3 @@
+
+1 lint errors found in app\generator.js
+  [1,13](W109) Strings must use singlequote.
