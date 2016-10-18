@@ -1,5 +1,25 @@
 
-1 lint errors found in app\controllers\main.controller.spec.js
-  [21,5](W033) Missing semicolon.
-1 lint errors found in app\controllers\main.controller.spec.js
-  [21,5](W033) Missing semicolon.
+3 lint errors found in app\services\process.service.js
+  [22,13](E030) Expected an identifier and instead saw ';'.
+  [22,14](W033) Missing semicolon.
+  [21,13](W117) 'result' is not defined.
+3 lint errors found in app\services\process.service.js
+  [22,13](E030) Expected an identifier and instead saw ';'.
+  [22,14](W033) Missing semicolon.
+  [21,13](W117) 'result' is not defined.
+3 lint errors found in app\services\process.service.js
+  [22,13](E030) Expected an identifier and instead saw ';'.
+  [22,14](W033) Missing semicolon.
+  [21,13](W117) 'result' is not defined.
+3 lint errors found in app\services\process.service.js
+  [22,13](E030) Expected an identifier and instead saw ';'.
+  [22,14](W033) Missing semicolon.
+  [21,13](W117) 'result' is not defined.
+3 lint errors found in app\services\process.service.js
+  [22,13](E030) Expected an identifier and instead saw ';'.
+  [22,14](W033) Missing semicolon.
+  [21,13](W117) 'result' is not defined.
+3 lint errors found in app\services\process.service.js
+  [22,13](E030) Expected an identifier and instead saw ';'.
+  [22,14](W033) Missing semicolon.
+  [21,13](W117) 'result' is not defined.

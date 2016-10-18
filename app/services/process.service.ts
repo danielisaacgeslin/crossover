@@ -5,8 +5,28 @@
   processService.$inject = [];
   function processService($http: ng.IHttpService, constants: any){
     return {
-      processChangeListItem: processChangeListItem
+      processChangeListItem,
+      getPercentageFromObject
     };
+
+    function getPercentageFromObject(obj): IPercentage{
+      const referencePercentage: number = 100;
+      const keys = Object.keys(obj);
+      let total: number = 0;
+      let average: number;
+      let percentages: any = {};
+
+      keys.forEach(key=>{
+        total += obj[key];
+      });
+      keys.forEach(key=>{
+        percentages[key] = obj[key] * referencePercentage / total;
+      });
+
+      average = total / keys.length;
+
+      return <IPercentage>{items: obj, total, average, percentages};
+    }
 
     function processChangeListItem(item): IChangeListItem{
       return <IChangeListItem>{
