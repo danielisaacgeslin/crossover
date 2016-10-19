@@ -20,6 +20,10 @@
       "functionalTest": {
         "pass": 4321,
         "fail": 2145
+      },
+      "codeCovered": {
+        "unitTest": 76,
+        "functionalTest": 23
       }
     },
     {
@@ -42,6 +46,10 @@
       "functionalTest": {
         "pass": 6121,
         "fail": 1122
+      },
+      "codeCovered": {
+        "unitTest": 56,
+        "functionalTest": 33
       }
     },
     {
@@ -64,6 +72,10 @@
       "functionalTest": {
         "pass": 81,
         "fail": 942
+      },
+      "codeCovered": {
+        "unitTest": 89,
+        "functionalTest": 54
       }
     },
     {
@@ -86,6 +98,10 @@
       "functionalTest": {
         "pass": 610,
         "fail": 0
+      },
+      "codeCovered": {
+        "unitTest": 75,
+        "functionalTest": 12
       }
     },
     {
@@ -108,6 +124,10 @@
       "functionalTest": {
         "pass": 54,
         "fail": 684
+      },
+      "codeCovered": {
+        "unitTest": 95,
+        "functionalTest": 86
       }
     },
     {
@@ -130,6 +150,10 @@
       "functionalTest": {
         "pass": 584,
         "fail": 0
+      },
+      "codeCovered": {
+        "unitTest": 45,
+        "functionalTest": 23
       }
     }
   ]

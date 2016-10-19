@@ -22,13 +22,15 @@
           change-list-row
           change-list-item="changeListRow"
           class="change-list-row"
-          ng-class="changeListRow.state"
+          ng-class="[changeListRow.state, {'expanded': vm.visibleRow === $index}]"
           ></tr>
           <tr
           ng-repeat-end
           ng-if="vm.visibleRow === $index"
           change-list-detail
           change-list-item="changeListRow"
+          class="change-list-detail-row"
+          ng-class="changeListRow.state"
           >
           </tr>
         </tbody>

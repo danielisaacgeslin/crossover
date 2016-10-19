@@ -1,12 +1,22 @@
-<div ng-if="changeListItem.state === 'rejected'">
-  <p>change rejected</p>
-  <button class="btn btn-danger">Find issues</button>
-</div>
-<div ng-if="changeListItem.state === 'complete'">
-  <p>complete</p>
-  <button class="btn btn-primary">Deploy</button>
-</div>
-<div ng-if="changeListItem.state === 'accepted'">
-  <p>auto-merged</p>
-  <button class="btn btn-primary">Merged Build</button>
+<div class="change-list-result">
+  <div ng-if="changeListItem.state === 'rejected'">
+    <h3>Result:</h3>
+    <h4>Change Rejected</h4>
+    <p>Metrics Reduction</p>
+    <button class="btn btn-danger col-xs-12">Find issues</button>
+  </div>
+  <div ng-if="changeListItem.state === 'complete'">
+    <h3>Result:</h3>
+    <p>Complete</p>
+    <button class="btn btn-primary">Deploy</button> <span>to: </span>
+    <select class="col-xs-12">
+      <option>Production</option>
+    </select>
+  </div>
+  <div ng-if="changeListItem.state === 'accepted'">
+    <h3>Result:</h3>
+    <h4>Change Accepted</h4>
+    <p>Auto-Merged</p>
+    <button class="btn btn-primary col-xs-12">Merged Build</button>
+  </div>
 </div>

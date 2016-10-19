@@ -1,3 +1,7 @@
-<div class="small-chart">
+<div class="small-chart" ng-class="{'fixed': state === 'fixed'}">
   <div class="bar" ng-style="{'width': percentage + '%'}" ng-class="state"></div>
+  <p ng-if="state === 'fixed'">
+    <strong>{{percentage}}%</strong>
+    <small>code covered</small>
+  </p>
 </div>

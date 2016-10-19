@@ -8,5 +8,6 @@ interface IChangeListItem {
   build: Date,
   unitTest: ITest,
   functionalTest: ITest,
+  codeCovered: ICodeCovered,
   percentages: IChangeListPercentages
 }

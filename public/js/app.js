@@ -233,6 +233,7 @@ require('./controllers/main.controller');
                 build: item.build ? new Date(item.build) : null,
                 unitTest: item.unitTest,
                 functionalTest: item.functionalTest,
+                codeCovered: item.codeCovered,
                 percentages: {
                     metrics: getPercentageFromObject(item.metrics),
                     unitTest: getPercentageFromObject(item.unitTest),

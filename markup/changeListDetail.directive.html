@@ -2,10 +2,22 @@
   <section>
     <div class="box" ng-class="changeListItem.state">
       <h4>Metrics</h4>
-      <p>test {{changeListItem.metrics.test}}</p>
-      <p>maintanability {{changeListItem.metrics.mantainability}}</p>
-      <p>security {{changeListItem.metrics.security}}</p>
-      <p>workmanship {{changeListItem.metrics.workmanship}}</p>
+      <div class="col-xs-6 text-center no-padding">
+        <h2>{{changeListItem.metrics.test}}</h2>
+        <small>test</small>
+      </div>
+      <div class="col-xs-6 text-center no-padding">
+        <h2>{{changeListItem.metrics.mantainability}}</h2>
+        <small>maintanability</small>
+      </div>
+      <div class="col-xs-6 text-center no-padding">
+        <h2>{{changeListItem.metrics.security}}</h2>
+        <small>security</small>
+      </div>
+      <div class="col-xs-6 text-center no-padding">
+        <h2>{{changeListItem.metrics.workmanship}}</h2>
+        <small>workmanship</small>
+      </div>
     </div>
   </section>
   <section>
@@ -18,27 +30,29 @@
   <section>
     <div class="box" ng-class="changeListItem.state">
       <h4>Unit Test</h4>
-      <div class="col-xs-8 no-padding">
+      <div class="col-xs-6 no-padding">
         <div google-chart chart="unitTChartObject"></div>
       </div>
-      <p class="col-xs-4">
-        {{changeListItem.percentages.unitTest.percentages.pass | number:0}}%
-        <br/>
+      <p class="col-xs-6 no-padding">
+        <span class="percentage">{{changeListItem.percentages.unitTest.percentages.pass | number:0}}%</span>
         <small>tests passed</small>
       </p>
+      <div class="clearfix"></div>
+      <small-chart percentage="changeListItem.codeCovered.unitTest" state="'fixed'"></small-chart>
     </div>
   </section>
   <section>
     <div class="box" ng-class="changeListItem.state">
       <h4>Functional Test</h4>
-      <div class="col-xs-8 no-padding">
+      <div class="col-xs-6 no-padding">
         <div google-chart chart="functionalTChartObject"></div>
       </div>
-      <p class="col-xs-4">
-        {{changeListItem.percentages.functionalTest.percentages.pass | number:0}}%
-        <br/>
+      <p class="col-xs-6 no-padding">
+        <span class="percentage">{{changeListItem.percentages.functionalTest.percentages.pass | number:0}}%</span>
         <small>tests passed</small>
       </p>
+      <div class="clearfix"></div>
+      <small-chart percentage="changeListItem.codeCovered.functionalTest" state="'fixed'"></small-chart>
     </div>
   </section>
   <section>
