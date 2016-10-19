@@ -85,7 +85,10 @@
                 return {
                     type: 'PieChart',
                     options: {
-                        legend: { position: 'none' }
+                        legend: { position: 'none' },
+                        backgroundColor: { fill: 'transparent' },
+                        chartArea: { width: '100%', height: '80%' },
+                        colors: ['#72ab4d', '#eb7d3d']
                     },
                     data: {
                         cols: [
@@ -112,6 +115,7 @@
             link: link,
             scope: {
                 changeListItem: '=',
+                expanded: '='
             }
         };
         function link($scope, $element, $attr) {

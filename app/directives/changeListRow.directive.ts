@@ -11,6 +11,7 @@
 			link: link,
 			scope: {
 					changeListItem: '=',
+          expanded: '='
 			}
     };
     function link($scope: any, $element: JQuery, $attr: ng.IAttributes){

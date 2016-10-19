@@ -11,22 +11,34 @@
   <section>
     <div class="box" ng-class="changeListItem.state">
       <h4>Build</h4>
-      <img src="./images/build-img.jpg" alt="build" />
-      <p>{{changeListItem.build | date: 'h:mma MM/dd/yyyy'}}</p>
+      <img class="build-img" src="./images/build-img.jpg" alt="build" />
+      <p class="text-center">{{changeListItem.build | date: 'h:mma MM/dd/yyyy'}}</p>
     </div>
   </section>
   <section>
     <div class="box" ng-class="changeListItem.state">
       <h4>Unit Test</h4>
-      <div google-chart chart="unitTChartObject"></div>
-      <p>tests passed {{changeListItem.unitTest.pass | number:0}}%</p>
+      <div class="col-xs-8 no-padding">
+        <div google-chart chart="unitTChartObject"></div>
+      </div>
+      <p class="col-xs-4">
+        {{changeListItem.percentages.unitTest.percentages.pass | number:0}}%
+        <br/>
+        <small>tests passed</small>
+      </p>
     </div>
   </section>
   <section>
     <div class="box" ng-class="changeListItem.state">
       <h4>Functional Test</h4>
-      <div google-chart chart="functionalTChartObject"></div>
-      <p>tests passed {{changeListItem.functionalTest.pass | number:0}}%</p>
+      <div class="col-xs-8 no-padding">
+        <div google-chart chart="functionalTChartObject"></div>
+      </div>
+      <p class="col-xs-4">
+        {{changeListItem.percentages.functionalTest.percentages.pass | number:0}}%
+        <br/>
+        <small>tests passed</small>
+      </p>
     </div>
   </section>
   <section>

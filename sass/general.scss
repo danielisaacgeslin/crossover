@@ -6,10 +6,11 @@ $darkblue: #3d72a6;
 $gray: #d6d6d6;
 $darkgray: #bdc2c7;
 $base: #f7f9fa;
+$black: #000;
 
 .transition {transition:All 0.2s ease-in-out; -webkit-transition:All 0.2s ease-in-out; -moz-transition:All 0.2s ease-in-out; -o-transition:All 0.2s ease-in-out;}
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {vertical-align: middle;}
-
+.no-padding {padding: 0;}
 
 body {background-color: $base;}
 
@@ -60,6 +61,12 @@ body {background-color: $base;}
     width: 20%;
     padding: 0 15px;
     float:left;
+    p {
+      color: $black;
+    }
+    .build-img {
+      margin-bottom:25px;
+    }
     .box {
       min-height:200px;
       padding: 3px 10px;

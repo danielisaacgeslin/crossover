@@ -18,6 +18,7 @@
           <tr
           ng-repeat-start="changeListRow in vm.changeList track by $index"
           ng-click="vm.toggleVisibleRow($index)"
+          expanded="vm.visibleRow === $index"
           change-list-row
           change-list-item="changeListRow"
           class="change-list-row"
