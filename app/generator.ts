@@ -6,5 +6,6 @@ import './services/async.service';
 import './services/store.service';
 import './directives/changeListRow.directive';
 import './directives/changeListDetail.directive';
+import './directives/changeListResult.directive';
 import './directives/smallChart.directive';
 import './controllers/main.controller';

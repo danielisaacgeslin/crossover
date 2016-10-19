@@ -6,5 +6,6 @@ require('./services/async.service');
 require('./services/store.service');
 require('./directives/changeListRow.directive');
 require('./directives/changeListDetail.directive');
+require('./directives/changeListResult.directive');
 require('./directives/smallChart.directive');
 require('./controllers/main.controller');
