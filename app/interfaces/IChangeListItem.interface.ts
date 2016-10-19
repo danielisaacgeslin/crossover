@@ -7,5 +7,6 @@ interface IChangeListItem {
   metrics: IMetrics,
   build: Date,
   unitTest: ITest,
-  functionalTest: ITest
+  functionalTest: ITest,
+  percentages: IChangeListPercentages
 }

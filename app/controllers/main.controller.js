@@ -14,7 +14,6 @@
         function _getChangeList() {
             return storeService.getChangeList().then(function (data) {
                 vm.changeList = data;
-                console.log(vm.changeList);
             });
         }
         function toggleVisibleRow(index) {

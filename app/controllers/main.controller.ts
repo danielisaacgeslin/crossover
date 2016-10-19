@@ -19,7 +19,6 @@
 		function _getChangeList(): ng.IPromise<IChangeListItem[]>{
 			return storeService.getChangeList().then(data=>{
 				vm.changeList = <IChangeListItem[]>data;
-				console.log(vm.changeList);
 			});
 		}
 

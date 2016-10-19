@@ -1,0 +1,11 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/angular-google-chart/google-chart-typings/master/typings.json",
+    "raw": "github:angular-google-chart/google-chart-typings",
+    "main": "google-chart.d.ts",
+    "browser": "google-chart.d.ts",
+    "name": "google-chart",
+    "type": "typings"
+  }
+}

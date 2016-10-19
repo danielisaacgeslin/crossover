@@ -35,7 +35,6 @@
         function _getChangeList() {
             return storeService.getChangeList().then(function (data) {
                 vm.changeList = data;
-                console.log(vm.changeList);
             });
         }
         function toggleVisibleRow(index) {
@@ -59,11 +58,42 @@
             }
         };
         function link($scope, $element, $attr) {
-            $scope.$watch(function () { return $scope.changeListItem; }, getPercentages);
-            function getPercentages() {
-                $scope.percentages = {
-                    unitTest: processService.getPercentageFromObject($scope.changeListItem.unitTest),
-                    functionalTest: processService.getPercentageFromObject($scope.changeListItem.functionalTest)
+            $scope.unitTChartObject = getChartObjectBase();
+            $scope.functionalTChartObject = getChartObjectBase();
+            $scope.$watch(function () { return $scope.changeListItem; }, updateCharts);
+            function updateCharts() {
+                $scope.unitTChartObject = setUnitTestChart();
+                $scope.functionalTChartObject = setFunctionalTestChart();
+            }
+            function setUnitTestChart() {
+                var chartObj = getChartObjectBase();
+                chartObj.data.rows = [
+                    { c: [{ v: 'Pass' }, { v: $scope.changeListItem.percentages.unitTest.percentages.pass }] },
+                    { c: [{ v: 'Fail' }, { v: $scope.changeListItem.percentages.unitTest.percentages.fail }] }
+                ];
+                return chartObj;
+            }
+            function setFunctionalTestChart() {
+                var chartObj = getChartObjectBase();
+                chartObj.data.rows = [
+                    { c: [{ v: 'Pass' }, { v: $scope.changeListItem.percentages.functionalTest.percentages.pass }] },
+                    { c: [{ v: 'Fail' }, { v: $scope.changeListItem.percentages.functionalTest.percentages.fail }] }
+                ];
+                return chartObj;
+            }
+            function getChartObjectBase() {
+                return {
+                    type: 'PieChart',
+                    options: {
+                        legend: { position: 'none' }
+                    },
+                    data: {
+                        cols: [
+                            { id: 'pass', label: 'Pass', type: 'string' },
+                            { id: 'fail', label: 'Fail', type: 'number' }
+                        ],
+                        rows: []
+                    }
                 };
             }
         }
@@ -85,14 +115,6 @@
             }
         };
         function link($scope, $element, $attr) {
-            $scope.$watch(function () { return $scope.changeListItem; }, getPercentages);
-            function getPercentages() {
-                $scope.percentages = {
-                    metrics: processService.getPercentageFromObject($scope.changeListItem.metrics).average,
-                    unitTest: processService.getPercentageFromObject($scope.changeListItem.unitTest).average,
-                    functionalTest: processService.getPercentageFromObject($scope.changeListItem.functionalTest).average
-                };
-            }
         }
     }
 })();
@@ -132,7 +154,7 @@ require('./controllers/main.controller');
 },{"./config":1,"./controllers/main.controller":2,"./directives/changeListDetail.directive":3,"./directives/changeListRow.directive":4,"./directives/smallChart.directive":5,"./modules/app.module":7,"./services/async.service":8,"./services/process.service":9,"./services/store.service":10}],7:[function(require,module,exports){
 (function () {
     'use strict';
-    angular.module('app', ['ui.router', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+    angular.module('app', ['ui.router', 'ngAnimate', 'ngSanitize', 'ui.bootstrap', 'googlechart']);
 })();
 
 },{}],8:[function(require,module,exports){
@@ -186,7 +208,12 @@ require('./controllers/main.controller');
                 metrics: item.metrics,
                 build: item.build ? new Date(item.build) : null,
                 unitTest: item.unitTest,
-                functionalTest: item.functionalTest
+                functionalTest: item.functionalTest,
+                percentages: {
+                    metrics: getPercentageFromObject(item.metrics),
+                    unitTest: getPercentageFromObject(item.unitTest),
+                    functionalTest: getPercentageFromObject(item.functionalTest)
+                }
             };
         }
     }

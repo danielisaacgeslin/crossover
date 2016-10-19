@@ -38,7 +38,12 @@
         metrics: item.metrics,
         build: item.build ? new Date(item.build) : null,
         unitTest: item.unitTest,
-        functionalTest: item.functionalTest
+        functionalTest: item.functionalTest,
+        percentages: {
+          metrics: getPercentageFromObject(item.metrics),
+          unitTest: getPercentageFromObject(item.unitTest),
+          functionalTest: getPercentageFromObject(item.functionalTest)
+        }
       }
     }
   }
