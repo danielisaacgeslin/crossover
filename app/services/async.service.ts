@@ -2,9 +2,9 @@
   'use strict';
   angular.module('app').factory('asyncService', asyncService);
 
-  asyncService.$inject = ['$http', 'constants'];
-  function asyncService($http: ng.IHttpService, constants: any){
-    const API = constants.API;
+  asyncService.$inject = ['$http'];
+  function asyncService($http: ng.IHttpService){
+    const API = '/api/';
     return {
       getChangeList: getChangeList
     };

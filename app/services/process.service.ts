@@ -24,7 +24,6 @@
       });
 
       average = total / keys.length;
-
       return <IPercentage>{items: obj, total, average, percentages};
     }
 

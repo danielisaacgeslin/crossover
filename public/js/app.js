@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function () {
     'use strict';
-    angular.module('app').config(config).constant('constants', constants());
+    angular.module('app').config(config);
     function config($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('/', {
@@ -10,11 +10,6 @@
             controller: 'mainController',
             controllerAs: 'vm'
         });
-    }
-    function constants() {
-        return {
-            API: '/api/'
-        };
     }
 })();
 
@@ -47,8 +42,8 @@
 (function () {
     'use strict';
     angular.module('app').directive('changeListDetail', changeListDetail);
-    changeListDetail.$inject = ['processService'];
-    function changeListDetail(processService) {
+    changeListDetail.$inject = [];
+    function changeListDetail() {
         return {
             restrict: 'A',
             templateUrl: 'changeListDetail.directive.html',
@@ -62,10 +57,10 @@
             $scope.functionalTChartObject = getChartObjectBase();
             $scope.$watch(function () { return $scope.changeListItem; }, updateCharts);
             function updateCharts() {
-                $scope.unitTChartObject = setUnitTestChart();
-                $scope.functionalTChartObject = setFunctionalTestChart();
+                $scope.unitTChartObject = getUnitTestChart();
+                $scope.functionalTChartObject = getFunctionalTestChart();
             }
-            function setUnitTestChart() {
+            function getUnitTestChart() {
                 var chartObj = getChartObjectBase();
                 chartObj.data.rows = [
                     { c: [{ v: 'Pass' }, { v: $scope.changeListItem.percentages.unitTest.percentages.pass }] },
@@ -73,7 +68,7 @@
                 ];
                 return chartObj;
             }
-            function setFunctionalTestChart() {
+            function getFunctionalTestChart() {
                 var chartObj = getChartObjectBase();
                 chartObj.data.rows = [
                     { c: [{ v: 'Pass' }, { v: $scope.changeListItem.percentages.functionalTest.percentages.pass }] },
@@ -185,9 +180,9 @@ require('./controllers/main.controller');
 (function () {
     'use strict';
     angular.module('app').factory('asyncService', asyncService);
-    asyncService.$inject = ['$http', 'constants'];
-    function asyncService($http, constants) {
-        var API = constants.API;
+    asyncService.$inject = ['$http'];
+    function asyncService($http) {
+        var API = '/api/';
         return {
             getChangeList: getChangeList
         };

@@ -2,9 +2,9 @@
   'use strict';
   angular.module('app').directive('changeListDetail',changeListDetail);
 
-  changeListDetail.$inject = ['processService'];
+  changeListDetail.$inject = [];
 
-  function changeListDetail(processService: any): ng.IDirective{
+  function changeListDetail(): ng.IDirective{
     return {
       restrict: 'A',
 			templateUrl: 'changeListDetail.directive.html',
@@ -21,11 +21,11 @@
       $scope.$watch(()=>$scope.changeListItem, updateCharts);
 
       function updateCharts(): void{
-        $scope.unitTChartObject = setUnitTestChart();
-        $scope.functionalTChartObject = setFunctionalTestChart();
+        $scope.unitTChartObject = getUnitTestChart();
+        $scope.functionalTChartObject = getFunctionalTestChart();
       }
 
-      function setUnitTestChart(): any{
+      function getUnitTestChart(): any{
         let chartObj = getChartObjectBase();
         chartObj.data.rows = [
           {c:[{v:'Pass'}, {v: $scope.changeListItem.percentages.unitTest.percentages.pass}]},
@@ -34,7 +34,7 @@
         return chartObj;
       }
 
-      function setFunctionalTestChart(): any{
+      function getFunctionalTestChart(): any{
         let chartObj = getChartObjectBase();
         chartObj.data.rows = [
           {c:[{v:'Pass'}, {v: $scope.changeListItem.percentages.functionalTest.percentages.pass}]},

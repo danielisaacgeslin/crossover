@@ -8,3 +8,4 @@ test/bower_components
 *.iml
 app/**/*.js
 app/**/*.map
+!app/**/*.spec.js
